@@ -1,9 +1,10 @@
 settings = {}  -- it's not a class, it's a simple object (not one can expect this)
 
-width, height = love.graphics.getDimensions()
+width = love.graphics.getWidth()
+height = love.graphics.getHeight()
 
-settings.monitor = button:new(width/2, height/6, "/png/bb_fulloff.png")
-settings.menu = button:new(width/2, height/5*5, "/png/bb_menu.png")
+settings.monitor = button:new(width/2, height/30*4, "/png/bb_fulloff.png")
+settings.menu = button:new(width/2, height/30*26, "/png/bb_menu.png")
 
 settings.buttons = {
   settings.monitor, settings.menu}

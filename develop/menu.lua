@@ -1,13 +1,12 @@
 menu = {}  -- it's not a class, it's a simple object (not one can expect this)
 
-print(love.graphics.getDimensions())
+width = love.graphics.getWidth()
+height = love.graphics.getHeight()
 
-width, height = love.graphics.getDimensions()
-
-menu.play = button:new(width/2, height/30*9, "/png/bb_play.png")
-menu.tuning = button:new(width/2, height/30*15, "/png/bb_tuning.png")
-menu.settings = button:new(width/2, height/30*21, "/png/bb_settings.png")
-menu.exit = button:new(width/2, height, "/png/bb_exit.png")
+menu.play = button:new(width/2, height/30*4, "/png/bb_play.png")
+menu.tuning = button:new(width/2, height/30*10, "/png/bb_tuning.png")
+menu.settings = button:new(width/2, height/30*16, "/png/bb_settings.png")
+menu.exit = button:new(width/2, height/30*26, "/png/bb_exit.png")
 
 menu.buttons = {
   menu.play, menu.tuning, menu.settings, menu.exit}

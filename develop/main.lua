@@ -1,3 +1,9 @@
+love.window.setMode(1066, 528, {resizable = true})
+  width = love.graphics.getWidth()
+  height = love.graphics.getHeight()
+  
+gratio = {width/1980, height/1040} -- global ratio, need for update position of objects
+
 require("extra_functions")
 require("car")
 require("background")
@@ -42,15 +48,11 @@ end
 function love.load(arg)
     scene = "menu"
     -- Window
-    local _, _, flags = love.window.getMode()
-    width, height = love.window.getDesktopDimensions(flags.display)
-    gratio = {width/1980, height/1080} -- global ratio
+    
     
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!
-    love.window.setMode(width, height - 66) -- for work, must be deleted in end
-    width = love.graphics.getWidth()
-    height = love.graphics.getHeight()
-        
+    
+    
     -- Game objects
     dial = extra:draw_dial(width, height)
     path = extra:draw_path(width, height)
