@@ -10,11 +10,11 @@ require('settings')
 require('tuning')
 
 function time_format (time) 
-str_time1 = tostring(math.floor(time*100)/100)
-if string.sub(str_time1,-2,-2)=="." then
-    str_time1 = str_time1 .. "0"
-end
-return str_time1
+    str_time1 = tostring(math.floor(time*100)/100)
+    if string.sub(str_time1,-2,-2)=="." then
+        str_time1 = str_time1 .. "0"
+    end
+    return str_time1
 end
 
 
@@ -44,6 +44,7 @@ function love.load(arg)
     -- Window
     local _, _, flags = love.window.getMode()
     width, height = love.window.getDesktopDimensions(flags.display)
+    gratio = {width/1980, height/1080} -- global ratio
     
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!
     love.window.setMode(width, height - 66) -- for work, must be deleted in end
@@ -62,8 +63,8 @@ function love.load(arg)
       sets['carcolors2'] = {{255,255,255,255}}
     
     --game = screen:new({session1, session2})
-      car1 = car:new(width/4-188, height/2-100, 1600, 1000, {600, 375}, {255, 255, 255, 255}, "/png/loshadka1.png", sets['carsprites1'], sets['carcolors1'], 1, dial, {'q','e','space'})
-      car2 = car:new(width/4-188, height/2-35, 1600, 1000, {600, 375}, {255, 255, 255, 255}, "/png/loshadka2.png", sets['carsprites2'], sets['carcolors2'], 1, dial, {'[',']','ralt'})
+      car1 = car:new(width/4-188, height/2-100, 1600, 1000, {600*gratio[1], 375*gratio[2]}, {255, 255, 255, 255}, "/png/loshadka1.png", sets['carsprites1'], sets['carcolors1'], 1, dial, {'q','e','space'})
+      car2 = car:new(width/4-188, height/2-35, 1600, 1000, {600*gratio[1], 375*gratio[2]}, {255, 255, 255, 255}, "/png/loshadka2.png", sets['carsprites2'], sets['carcolors2'], 1, dial, {'[',']','ralt'})
   
     dir = 0
     
