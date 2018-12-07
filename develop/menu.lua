@@ -10,11 +10,11 @@ menu.play.func = function ()
 menu.tuning = button:new(width/2, height/30*10, "/png/bb_tuning.png")
 menu.tuning.func = function ()
                      scene = 'tuning'
-                 end
+                   end
 menu.settings = button:new(width/2, height/30*16, "/png/bb_settings.png")
 menu.settings.func = function ()
-                     scene = 'settings'
-                 end
+                         scene = 'settings'
+                     end
 menu.exit = button:new(width/2, height/30*26, "/png/bb_exit.png")
 menu.exit.func = function ()
                      love.event.quit()

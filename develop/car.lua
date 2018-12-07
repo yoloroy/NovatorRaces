@@ -38,13 +38,13 @@ function car:new(x, y, w, h, size, color, image_link, tatoos, tatoocolors, durat
     return obj
 end
 
- function car:UpdateTatoo(tatoos, tatoocolors)
-       for i, item in pairs(tatoos) do
+    function car:UpdateTatoo(tatoos, tatoocolors)
+        for i, item in pairs(tatoos) do
           obj.tatoos[i] = animation:new(love.graphics.newImage(item), w, h, size, duration)
-       end
-       for i, item in pairs(tatoocolors) do
-         obj.tatoocolor[i] = item
-       end   
+        end
+        for i, item in pairs(tatoocolors) do
+          obj.tatoocolor[i] = item
+        end   
     end
     
     function car:render(x, y)
@@ -65,7 +65,7 @@ end
                                self.color[2]/255, 
                                self.color[3]/255, 
                                self.color[4]/255)
-        if self.bite >= 0 then
+        if self.bite >= 0 then  -- not tatoo, kostil' vnutri kostil'noy funcktii
             self:draw_whip(self.x + x, self.y + y)
         end
         love.graphics.setLineWidth(1)
@@ -79,7 +79,8 @@ end
             self.strength = self.strength + 270*dt
         end
         
-        self.image:update(dt, self.u)
+        self.image:update(dt)
+        self:update_duration()  -- self.u inside, because self, 24 - 28 in animation.lua
         for _, item in pairs(self.tatoos) do
             item:update(dt, self.u)
         end
@@ -92,7 +93,6 @@ end
           
         self.dt = self.dt + dt
         self.path = self.path + self.u*dt*30
-        --self.x = self.x + self.u*dt
         if self.u > 0 then
             self.u = self.u - 0.001*dt
             if self.stress < 50 then
